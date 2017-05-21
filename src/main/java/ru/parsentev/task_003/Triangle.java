@@ -26,10 +26,22 @@ public class Triangle {
     }
 
     public boolean exists() {
-        throw new UnsupportedOperationException();
+        boolean ext = true;
+        if (first == second && first == third) ext = false;
+        if (first.getPositionX() == second.getPositionX() && first.getPositionX() == third.getPositionX()) {
+            ext = false;
+        } else if (first.getPositionY() == second.getPositionY() && first.getPositionY() == third.getPositionY()) ext = false;
+        return ext;
     }
 
     public double area() {
-        throw new UnsupportedOperationException();
+        double S = 0;
+        if (first == second && first == third) throw new IllegalStateException();
+        if (first.getPositionX() == second.getPositionX() && first.getPositionX() == third.getPositionX()) {
+            throw new IllegalStateException();
+        } else if (first.getPositionY() == second.getPositionY() && first.getPositionY() == third.getPositionY()) {
+            throw new IllegalStateException();
+        } else S = (first.distanceTo(second) * first.distanceTo(third)) / 2;
+        return S;
     }
 }
